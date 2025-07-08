@@ -14,13 +14,104 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      url_analytics: {
+        Row: {
+          browser: string | null
+          city: string | null
+          clicked_at: string
+          country: string | null
+          device_type: string | null
+          id: string
+          ip_address: string | null
+          referrer: string | null
+          url_id: string
+          user_agent: string | null
+        }
+        Insert: {
+          browser?: string | null
+          city?: string | null
+          clicked_at?: string
+          country?: string | null
+          device_type?: string | null
+          id?: string
+          ip_address?: string | null
+          referrer?: string | null
+          url_id: string
+          user_agent?: string | null
+        }
+        Update: {
+          browser?: string | null
+          city?: string | null
+          clicked_at?: string
+          country?: string | null
+          device_type?: string | null
+          id?: string
+          ip_address?: string | null
+          referrer?: string | null
+          url_id?: string
+          user_agent?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "url_analytics_url_id_fkey"
+            columns: ["url_id"]
+            isOneToOne: false
+            referencedRelation: "urls"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      urls: {
+        Row: {
+          created_at: string
+          custom_alias: string | null
+          expires_at: string | null
+          id: string
+          is_active: boolean
+          original_url: string
+          password_hash: string | null
+          short_code: string
+          title: string | null
+          updated_at: string
+          user_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          custom_alias?: string | null
+          expires_at?: string | null
+          id?: string
+          is_active?: boolean
+          original_url: string
+          password_hash?: string | null
+          short_code: string
+          title?: string | null
+          updated_at?: string
+          user_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          custom_alias?: string | null
+          expires_at?: string | null
+          id?: string
+          is_active?: boolean
+          original_url?: string
+          password_hash?: string | null
+          short_code?: string
+          title?: string | null
+          updated_at?: string
+          user_id?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      generate_short_code: {
+        Args: Record<PropertyKey, never>
+        Returns: string
+      }
     }
     Enums: {
       [_ in never]: never
