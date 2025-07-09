@@ -27,8 +27,7 @@ A powerful, privacy-focused, and customizable URL shortener built with modern we
 
 ## 📸 Demo
 
-![Demo Screenshot](demo-screenshot.png)  
-[Live Demo »](#) *(optional)*
+Link - https://urlcodeccutter.netlify.app/
 
 ---
 
