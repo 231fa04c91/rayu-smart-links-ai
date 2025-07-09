@@ -49,6 +49,7 @@ cd url-shortener
 npm install   # or pip install -r requirements.txt
 npm start     # or python app.py
 
+```
 
 ## 📄 License
 
