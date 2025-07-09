@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { Switch } from '@/components/ui/switch';
 import { toast } from '@/hooks/use-toast';
+import { supabase } from '@/integrations/supabase/client';
 import confetti from 'canvas-confetti';
 
 const URLShortener = () => {
@@ -30,30 +31,46 @@ const URLShortener = () => {
 
     setIsLoading(true);
     
-    // Simulate API call with loading animation
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    const randomId = customAlias || Math.random().toString(36).substring(2, 8);
-    const shortUrl = `rayu.link/${randomId}`;
-    setShortenedUrl(shortUrl);
-    setIsLoading(false);
+    try {
+      const { data, error } = await supabase.functions.invoke('shorten-url', {
+        body: {
+          originalUrl: url,
+          customAlias: customAlias || null,
+          userId: null // For now, we'll handle anonymous users
+        }
+      });
 
-    // Trigger confetti effect
-    confetti({
-      particleCount: 100,
-      spread: 70,
-      origin: { y: 0.6 },
-      colors: ['#6C63FF', '#4DAAF8', '#FF6584']
-    });
-    
-    toast({
-      title: "Link shortened successfully! 🎉",
-      description: "Your short link is ready to share",
-    });
+      if (error) {
+        throw error;
+      }
+
+      setShortenedUrl(data.shortUrl);
+      
+      // Trigger confetti effect
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 },
+        colors: ['#6C63FF', '#4DAAF8', '#FF6584']
+      });
+      
+      toast({
+        title: "Link shortened successfully! 🎉",
+        description: "Your short link is ready to share",
+      });
+    } catch (error) {
+      toast({
+        title: "Error shortening URL",
+        description: error.message || "Please try again",
+        variant: "destructive"
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(`https://${shortenedUrl}`);
+    navigator.clipboard.writeText(shortenedUrl);
     toast({
       title: "Copied to clipboard! 📋",
       description: "Your short link is ready to share",
@@ -173,7 +190,7 @@ const URLShortener = () => {
           <CardContent className="space-y-4">
             <div className="flex items-center space-x-2 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
               <Input
-                value={`https://${shortenedUrl}`}
+                value={shortenedUrl}
                 readOnly
                 className="border-none bg-transparent text-lg font-mono"
               />
