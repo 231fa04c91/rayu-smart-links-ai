@@ -1,73 +1,59 @@
-# Welcome to your Lovable project
+# 🔗 URL Shortener
 
-## Project info
+A powerful, privacy-focused, and customizable URL shortener built with modern web technologies. This tool allows users to shorten long URLs, track click analytics, generate QR codes, and even create smart, AI-powered redirects.
 
-**URL**: https://lovable.dev/projects/a0ed2860-6a8f-4a7d-9313-b6d4691403e4
+---
 
-## How can I edit this code?
+## 🚀 Features
 
-There are several ways of editing your application.
+- 🔗 **Shorten long URLs** into clean, compact links
+- ✨ **Custom aliases** (e.g., `/your-brand`)
+- 📊 **Click analytics** (location, device, time)
+- 🔐 **Password-protected links**
+- ⏳ **Link expiration** (by date or click count)
+- 🔄 **Editable short links** (change destination anytime)
+- 🌍 **Smart redirection** (based on location/device)
+- 📱 **QR code generation**
+- 🧩 **Developer-friendly API**
+- ⚠️ **Malicious link detection**
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/a0ed2860-6a8f-4a7d-9313-b6d4691403e4) and start prompting.
+## 🎯 Unique Selling Point (USP)
 
-Changes made via Lovable will be committed automatically to this repo.
+> A privacy-first URL shortener with **AI-powered smart redirects**, editable links, and **advanced analytics** — all without requiring login!
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 📸 Demo
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+![Demo Screenshot](demo-screenshot.png)  
+[Live Demo »](#) *(optional)*
 
-Follow these steps:
+---
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## 🛠️ Tech Stack
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+- **Frontend**: HTML, CSS, JavaScript
+- **Backend**: Node.js / Flask / Django / (your stack)
+- **Database**: SQLite / PostgreSQL / MongoDB
+- **Other**: QR Code Generator, Google Safe Browsing API
 
-# Step 3: Install the necessary dependencies.
-npm i
+---
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+## 📦 Installation
 
-**Edit a file directly in GitHub**
+```bash
+git clone https://github.com/your-username/url-shortener.git
+cd url-shortener
+npm install   # or pip install -r requirements.txt
+npm start     # or python app.py
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
 
-**Use GitHub Codespaces**
+## 📄 License
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+This project is licensed under the MIT License.
 
-## What technologies are used for this project?
+## 🧠 Author
 
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/a0ed2860-6a8f-4a7d-9313-b6d4691403e4) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Built with ❤️ by Raiyan 
