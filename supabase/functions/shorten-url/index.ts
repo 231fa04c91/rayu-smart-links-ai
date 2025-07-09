@@ -77,7 +77,7 @@ serve(async (req) => {
 
     return new Response(
       JSON.stringify({ 
-        shortUrl: `${Deno.env.get('SUPABASE_URL')?.replace('/rest/v1', '')}/functions/v1/redirect/${shortCode}`,
+        shortUrl: `https://rayu.link/${shortCode}`,
         shortCode,
         originalUrl 
       }),
